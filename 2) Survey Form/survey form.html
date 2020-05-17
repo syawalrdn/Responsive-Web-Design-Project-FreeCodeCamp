@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+
+    <title>Form</title>
+  </head>
+  <body>
+    <div class="container">
+    <h1 id="title">Survei Status Pekerjaan Penduduk Kota Makassar</h1>
+    <p id="description"><em>Silahkan isi form survei dibawah ini jika anda adalah Penduduk kota Makassar</em></p>
+    <form id="survey-form">
+        <div class="form-group">
+            <label id="name-label" for="nama">Nama</label>
+            <input type="text" class="form-control" id="name" placeholder="Masukkan nama anda" required="">
+        </div>
+        <div class="form-group">
+            <label id="email-label" for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Masukkan Email anda" required="">
+            <small id="emailHelp" class="form-text text-muted">Jangan memasukkan password anda disini.</small>
+        </div>
+        
+        <div class="form-group">
+          <label id="number-label" for="number">Umur</label>
+          <input type="number" class="form-control" id="number" min="15" max="65" placeholder="Masukkan umur anda">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="input-tempat" id="number">Tempat</label>
+                <input type="text" class="form-control" id="tempat" placeholder="Masukkan tempat lahir">                    
+            </div>
+            <div class="form-group col-md-6">
+                <label for="input-ttl" id="ttl">Tanggal Lahir</label>
+                <input type="date" class="form-control" id="ttl">                    
+            </div>   
+        </div>
+
+        <div class="form-group">
+            <p>Status</p>
+            <div class="form-check">
+                <input class="input-radio form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                <label class="form-check-label" for="exampleRadios1">
+                  Menikah
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="input-radio form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Belum Menikah
+                </label>
+              </div>
+           </div>
+
+        <div class="form-group">
+            <p>Pekerjaan</p>
+            <input type="text" class="form-control" id="pekerjaan" placeholder="Masukkan Pekerjaan anda">
+        </div>
+        
+        <div class="form-group">
+            <label for="pilihPendidikan">Pendidikan Terakhir</label>
+            <select id="dropdown" name="pendidikan" class="form-control custom-select mb-3" required="">
+            <option disabled="" selected="" value="">-Pilih Pendidikan Terakhir Anda-</option>
+            <option value="SMA">SMA</option>
+            <option value="Sarjana">S1 - Sarjana</option>
+            <option value="Magister">S2 - Magister</option>
+            <option value="Doctor">S3 - Doctor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <p>Kemampuan Keterampilan (SoftSkill)<span class="clue">(Pilih lebih dari 1)</span></p>
+            <label><input name="pilihan" value="Komunikasi" type="checkbox" class="input-checkbox">  Komunikasi</label><br>
+            <label><input name="pilihan" value="Presentasi" type="checkbox" class="input-checkbox"> Presentasi</label><br>
+            <label><input name="pilihan" value="Teamwork" type="checkbox" class="input-checkbox"> Teamwork</label><br>
+            <label><input name="pilihan" value="Problem Solver" type="checkbox" class="input-checkbox"> Problem Solver</label><br>
+            <label><input name="pilihan" value="Kepemimpinan" type="checkbox" class="input-checkbox"> Kepemimpinan</label><br>
+            <label><input name="pilihan" value="Mentoring" type="checkbox" class="input-checkbox"> Mentoring</label><br>
+            <label><input name="pilihan" value="Manajemen Waktu" type="checkbox" class="input-checkbox"> Manajemen Waktu</label>
+        </div>
+
+        <div class="form-group">
+            <p>Ingin berbagi pengalaman kerja?</p>
+            <textarea id="comments" class="input-textarea" name="comment" placeholder="masukkan pengalaman kerja anda disini..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+         
+    </form>
+    </div>   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

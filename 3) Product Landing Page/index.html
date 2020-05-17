@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syawal's Store</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+    <header id="header">
+      
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="nav-bar">
+    <a class="navbar-brand" href="#">
+      <div class="logo">
+        <img id="header-img" src="https://hosting.photobucket.com/images/i/syawalrdn/0/logo.jpg?width=371&height=225&fit=bounds&crop=fill"  width="50" height="50" class="d-inline-block align-center" alt="logo">
+        Syawal's Bolu Cake
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#deskripsi">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cara-buat">Cara Buat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#harga">Harga</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  </header>
+  <div class="container">
+    <div class="info-kunjung">
+      <h3 class="mb-4"><b>Selamat Datang di Bolu Syawal</b></h3>
+      <p class="ket">Bolu Syawal adalah salah satu tempat belanja online Kue Bolu favorit. silahkan masukkan 
+        e-mail anda dibawah ini sebagai kunjungan anda.
+      </p>
+      <form id="form" action="https://www.freecodecamp.com/email-submit">
+        <center><input name="email" class="form-control" id="email" type="email" placeholder="masukkan email anda" required/></center>
+        <input id="submit" type="submit" value="Mari Mulai" class="btn btn-dark mt-3 mb-4"/>
+      </form>
+    </div>
+
+    <div id="deskripsi">
+      <ul class="list-unstyled">
+        <li class="media">
+          <img class="mr-3" src="https://hosting.photobucket.com/images/i/syawalrdn/0/enak.png?width=371&height=225&fit=bounds&crop=fill" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"><b>Tekstur Lembut</b></h5>
+            Kami menyediakan kue bolu yang memiliki tekstur yang lembut terasa enak yang pas di mulut.
+          </div>
+        </li>
+        <li class="media my-4">
+          <img class="mr-3" src="https://hosting.photobucket.com/images/i/syawalrdn/0/aneka.png?width=371&height=225&fit=bounds&crop=fill" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"><b>Aneka Varian Rasa</b></h5>
+            Kue Bolu yang kami punya ada rasa coklat, keju, pandan.
+          </div>
+        </li>
+        <li class="media">
+          <img class="mr-3" src="https://hosting.photobucket.com/images/i/syawalrdn/0/kualitas.png?width=371&height=225&fit=bounds&crop=fill" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="mt-0 mb-1"><b>Kualitas Menjamin</b></h5>
+            Setiap Bolu yang kami buat dibuat dari bahan-bahan yang higenis dan alami.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="cara-buat">
+      <center><iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/AFErKCfw9lg" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+    </div>
+
+    <div id="harga">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card border-secondary">
+            <div class="card-header">Bolu Rasa Pandan</div>
+            <div class="card-body text-secondary">
+              <h5 class="card-title">ENAK</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <input type="submit" value="Pesan" class="btn btn-dark mt-3"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card border-secondary">
+            <div class="card-header">Bolu Rasa Cokelat</div>
+            <div class="card-body text-secondary">
+              <h5 class="card-title">MANTAP</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <input type="submit" value="Pesan" class="btn btn-dark mt-3"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card border-secondary">
+            <div class="card-header">Bolu Rasa Keju</div>
+            <div class="card-body text-secondary">
+              <h5 class="card-title">LUAR BIASA</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <input type="submit" value="Pesan" class="btn btn-dark mt-3"/>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+    
+  </div>
+  <footer>
+    <div class="d-flex justify-content-center">
+      <div class="p-2 bd-highlight"><a href="">Privacy</a></div>
+      <div class="p-2 bd-highlight"><a href="">Terms</a></div>
+      <div class="p-2 bd-highlight"><a href="">Contacs</a></div>
+    </div>
+    <p style="text-align: center;">Copyright 2020, Kue Bolu Syawal</p>
+  </footer>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+  <title>Technical Documentation Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="main-doc">
+    <nav id="navbar">
+      <header>Tata Bahasa dan Tipe</header>
+      <ul>
+        <li><a href="#Pengenalan" class="nav-link">Pengenalan</a></li>
+        <li><a href="#Dasar" class="nav-link">Dasar</a></li>
+        <li><a href="#Komentar" class="nav-link">Komentar</a></li>
+        <li><a href="#Deklarasi" class="nav-link">Deklarasi</a></li>
+        <li><a href="#Struktur_dan_Tipe_Data" class="nav-link">Struktur dan Tipe Data</a></li>
+        <li><a href="#Literal" class="nav-link">Literal</a></li>
+        <li><a href="#Referensi" class="nav-link">Referensi</a></li>
+      </ul>
+    </nav>
+    <h1>Tata Bahasa dan Tipe</h1>
+    <section class="main-section" id="Pengenalan">
+      <header>Pengenalan</header>
+      <p>Dokumen ini membahas tata bahasa dasar JavaScript, deklarasi variabel, tipe data, dan literal.</p>
+    </section>
+    <section class="main-section" id="Dasar">
+      <header>Dasar</header>
+      <p>Sebagian besar sintak JavaScript terinspirasi dari Java, namun juga dipengaruhi oleh Awk, Perl dan Python.</p>
+      <p>JavaScript bersifat <strong>case-sensitive</strong> dan menggunakan set karakter <strong>Unicode</strong>.</p>
+      <p>Dalam JavaScript, instruksi disebut pernyataan dan dipisahkan oleh titik koma (;). Spasi, tab dan karakter baris baru disebut whitespace.Teks sumber skrip JavaScript dipindai dari kiri ke kanan dan diubah menjadi urutan elemen masukan yang merupakan token, karakter kontrol, terminator baris, komentar atau whitespace. ECMAScript juga mendefinisikan kata kunci dan literal tertentu dan memiliki aturan untuk penyisipan titik koma secara otomatis (ASI) untuk mengakhiri pernyataan. Namun, dianjurkan untuk selalu menambahkan titik koma untuk mengakhiri pernyataan anda; Itu akan terhindar dari efek samping. Untuk informasi lebih lanjut, lihat referensi rinci tentang tata bahasa eksikal JavaScript.</p>
+    </section>
+    <section class="main-section" id="Komentar">
+      <header>Komentar</header>
+      <p>Sintak komentar pada JavaScript sama dengan C++ dan dalam banyak bahasa pemrograman lainnya:</p>
+      <pre><code>// komentar satu baris</code>
+  <code></code>
+  <code>/* Ini lebih panjang</code>
+  <code>   komentar beberapa baris</code>
+  <code> */</code>
+  <code></code>
+  <code>/* Anda tidak bisa menggunakannya, /* komentar bersarang */ Sintak bermasalah */</code></pre>
+    </section>
+    <section class="main-section" id="Deklarasi">
+      <header>Deklarasi</header>
+      <p>Ada tiga macam deklarasi pada JavaScript.</p>
+      <dl>
+        <dt><code>var</code></dt>
+        <dd>Mendeklarasikan sebuah variabel, opsional menginisialisasi sebuah nilai.</dd>
+        <dt><code>let</code></dt>
+        <dd>Mendeklarasikan lingkup-blok, variabel lokal, opsional menginisialisasi sebuah nilai.</dd>
+        <dt><code>const</code></dt>
+        <dd>Mendeklarasikan sebuah lingkup-blok, baca-saja dinamakan konstanta.</dd>
+      </dl>
+      <h2>Variabel</h2>
+      <p>Anda menggunakan variabel sebagai nama simbolik dalam aplikasi Anda.  Nama variabel, disebut Pengidentifikasi, sesuai dengan peraturan tertentu.</p>
+      <p>Pengindetifikasi pada JavaScript harus dimulai dengan huruf, garis bawah (_), atau tanda dolar ($); Karakter selanjutnya bisa berupa digit (0-9). karena JavaScript sensitif huruf (case-sensitive), Huruf termasuk karakter "A" sampai "Z" (huruf besar) dan huruf "a" sampai "z" (huruf kecil) .</p>
+      <p>Anda dapat menggunakan sebagian besar huruf ISO 8859-1 atau Unicode seperti å dan ü dalam pengidentifikasi (untuk lebih jelasnya lihat postingan blog ini). Anda juga dapat menggunakan urutan rangkaian pelolosan/escape Unicode sebagai karakter dalam pengidentifikasi.</p>
+      <p>Beberapa contoh nama legal adalah Number_hits, temp99, $credit, dan _name.</p>
+      <h2>Mendeklarasikan variabel</h2>
+      <p>Anda bisa mendeklarasikan sebuah variabel dalam tiga cara:</p>
+      <ul>
+        <li>Dengan kata kunci var. Misalnya <code>var x = 42,</code>. Sintaks ini dapat digunakan untuk mendeklarasikan variabel lokal dan global.</li>
+        <li>Cukup menugaskan sebuah nilai. Misalnya <code>x = 42</code>. Ini selalu mendeklarasikan variabel global, jika dinyatakan di luar fungsi apa pun. Ini menghasilkan peringatan JavaScript yang ketat/strict. Anda sebaiknya tidak menggunakan varian ini.</li>
+        <li>Dengan kata kunci let. Misalnya <code>let y = 13.</code> Sintaks ini dapat digunakan untuk mendeklarasikan variabel lokal lingkup-blok. Lihat Lingkup variabel di bawah ini.</li>
+      </ul>
+      <h2>Mengevaluasi variabel</h2>
+      <p>Variabel yang dideklarasikan dengan menggunakan pernyataan<code>var</code> atau <code>let</code> anpa penetapan nilai yang ditentukan memiliki nilai<code>undefined</code>.</p>
+        <p>Upaya untuk mengakses variabel yang tidak dideklarasikan akan menuju kepada pelemparan eksepsi<code>ReferenceError</code></p>
+        <pre><code>var a;</code>
+  <code>console.log('Nilai dari a adalah ' + a); // Nilai dari a adalah undefined</code>
+  <code></code>
+  <code>var b;</code>
+  <code>console.log('Nilai dari b adalah ' + b); // Nilai dari b adalah undefined</code>
+  <code></code>
+  <code>console.log('Nilai dari c adalah ' + c); // Uncaught ReferenceError: c adalah not defined</code>
+  <code></code>
+  <code>let x;</code>
+  <code>console.log('Nilai dari x adalah ' + x); // Nilai dari x adalah undefined</code>
+  <code></code>
+  <code>console.log('The value of y adalah ' + y); // Uncaught ReferenceError: y adalah not defined</code>
+  <code>let y;</code></pre>
+        <p>Anda dapat menggunakan undefined untuk menentukan apakah sebuah variabel memiliki nilai. Dalam kode berikut, variabel input tidak diberi nilai, dan pernyataan  if dievaluasi true.</p>
+        <pre><code>var input;</code>
+  <code>if (input === undefined) {</code>
+  <code>  lakukanIni();</code>
+  <code>} else {</code>
+  <code>  lakukanItu();</code>
+  <code>}</code></pre>
+  <p>Nilai<code>undefined</code>berperilaku sebagai<code>false </code> bila digunakan dalam konteks boolean. Misalnya, kode berikut menjalankan fungsi <code>fungsiSaya</code><code> </code> karena elemen  <code>myArray </code> undefined:</p>
+
+  <pre><code>var myArray = [];
+  if (!myArray[0]) fungsiSaya();</code></pre>
+  
+  <p> Nilai  <code>undefined </code> mengkonversi ke <code>NaN </code> bila digunakan dalam konteks numerik.</p>
+  
+  <pre><code>var a;
+  a + 2;  // Dievaluasi ke NaN</code></pre>
+  
+  <p> Ketika Anda mengevaluasi sebuah variabel <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> , nilai null berperilaku seperti 0 dalam konteks numerik dan sebagai false dalam konteks boolean.  Sebagai contoh:</p>
+  
+  <pre><code>var n = null;
+  console.log(n * 32); // Akan log 0 ke konsol</code></pre>
+  
+  <h3 id="Lingkup_variabel"> Lingkup variabel</h3>
+  
+  <p> Bila Anda mendeklarasikan variabel di luar fungsi apa pun, ini disebut variabel <em> global</em>  , karena tersedia pada kode lain dalam dokumen tersebut. Ketika Anda mendeklarasikan sebuah variabel dalam suatu fungsi, itu disebut variabel <em> lokal</em>  , karena hanya tersedia di dalam fungsi itu.</p>
+  
+  <p> JavaScript sebelum ECMAScript 2015 tidak memiliki lingkup <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#Block_statement"> pernyataan blok</a>  ; Sebaliknya, variabel yang dinyatakan dalam blok bersifat lokal terhadap <em> fungsi (atau lingkup global)</em>  yang berada di blok. Misalnya kode berikut akan log <code>5</code> , karena ruang lingkupnya <code>x </code> adalah fungsi (atau konteks global) yang <code>x </code> dideklarasikan, bukan bloknya, yang dalam hal ini adalah sebuah pernyataan <code>if</code> .</p>
+  
+  <pre><code>if (true) {
+    var x = 5;
+  }
+  console.log(x);  // x is 5</code></pre>
+  
+  <p> Perilaku ini berubah, saat menggunakan deklarasi <code>let </code> yang diperkenalkan di ECMAScript 2015.</p>
+  
+  <pre><code>if (true) {
+    let y = 5;
+  }
+  console.log(y);  // ReferenceError: y tidak di definisikan</code></pre>
+  
+  <h3 id="Hoisting_variabel"> Hoisting variabel</h3>
+  
+  <p> Hal lain yang tidak biasa tentang variabel dalam JavaScript adalah Anda bisa merujuk ke variabel yang dideklarasikan nanti, tanpa mendapatkan eksepsi. Konsep ini dikenal sebagai <strong> hoisting</strong> ; Variabel dalam JavaScript dalam arti "dikibarkan" atau diangkat ke atas fungsi atau pernyataan. Bagaimanapun, variabel yang dikibarkan akan memberikan nilai <code>undefined</code> . Jadi, bahkan jika Anda mendeklarasikan dan menginisialisasi setelah Anda menggunakan atau merujuk ke variabel ini, itu akan tetap memberikan undefined.</p>
+  
+  <pre><code>/**
+   * Contoh 1
+   */
+  console.log(x === undefined); // true
+  var x = 3;
+  
+  /**
+   * Contoh 2
+   */
+  // Akan memberikan nilai undefined
+  var myvar = 'my value';
+   
+  (function() {
+    console.log(myvar); // undefined
+    var myvar = 'local value';
+  })();</code></pre>
+  
+  <p> Contoh di atas akan dinterprestasikan sama dengan:</p>
+  
+  <pre><code>/**
+   * Contoh 1
+   */
+  var x;
+  console.log(x === undefined); // true
+  x = 3;
+   
+  /**
+   * Example 2
+   */
+  var myvar = 'my value';
+   
+  (function() {
+    var myvar;
+    console.log(myvar); // undefined
+    myvar = 'nilai lokal';
+  })();</code></pre>
+  
+  <p> Karena hoisting, semua pernyataan <code>var </code> dalam suatu fungsi harus ditempatkan sedekat mungkin ke atas fungsi. Praktik terbaik ini meningkatkan kejelasan kode.</p>
+  
+  <p> Dalam ECMAScript 2015, variabel  <code>let (const)</code> <strong> tidak akan hoist </strong> ke bagian atas blok. Bagaimanapun, referensi variabel di blok sebelum deklarasi variabel menghasilkan sebuah <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError" title="Objek ReferenceError mewakili kesalahan saat variabel yang tidak ada direferensikan."><code>ReferenceError</code></a> . Variabel ini berada dalam "zona mati temporal" dari awal blok sampai deklarasi diproses.</p>
+  
+  <pre><code>console.log(x); // ReferenceError
+  let x = 3;</code></pre>
+  
+  <h3 id="Hoisting_fungsi"> Hoisting fungsi</h3>
+  
+  <p> Untuk fungsi, hanya deklarasi fungsi yang diangkat ke atas dan bukan ekspresi fungsi.</p>
+  
+  <pre><code>/* Deklarasi fungsi */
+  
+  foo(); // "bar"
+  
+  function foo() {
+    console.log('bar');
+  }
+  
+  
+  /* Ekspresi fungsi */
+  
+  baz(); // TypeError: baz adalah bukan fungsi
+  
+  var baz = function() {
+    console.log('bar2');
+  };</code></pre>
+  
+  <h3 id="Variabel_global"> Variabel global</h3>
+  
+  <p> Variabel global sebenarnya adalah properti dari <em> objek global</em>  . Di halaman web objek global itu <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> , sehingga Anda bisa mengatur dan mengakses variabel global dengan menggunakan sintaks <code>window.<em>variable</em></code></p>
+  
+  <p> Akibatnya, Anda dapat mengakses variabel global yang dideklarasikan dalam satu window atau frame dari window atau frame lain dengan menentukan nama window atau frame. Misalnya, jika variabel yang disebut <code>phoneNumber </code> dinyatakan dalam dokumen, Anda dapat merujuk variabel ini dari iframe as <code>parent.phoneNumber</code> .</p>
+  
+  <h3 id="Konstanta"> Konstanta</h3>
+  
+  <p> Anda bisa membuat variabel baca-saja, dinamai dengan kata kunci <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" title="Deklarasi ini menciptakan sebuah konstanta yang ruang lingkupnya bisa bersifat global atau lokal terhadap fungsi di mana ia dideklarasikan.  Penginisialisasi untuk konstanta diperlukan;  Artinya, Anda harus menentukan nilainya dalam pernyataan yang sama dengan pernyataannya (yang masuk akal, mengingat hal itu tidak dapat diubah nanti)."><code>const</code></a> . Sintaksis dari pengenal konstanta sama dengan pengenal variabel: ia harus dimulai dengan huruf, garis bawah atau tanda dolar ($) dan dapat berisi karakter abjad, numerik, atau garis bawah.</p>
+  
+  <pre><code>const PI = 3.14;</code></pre>
+  
+  <p> Konstanta tidak dapat mengubah nilai melalui penugasan atau dinyatakan ulang saat naskah dijalankan. Ini harus diinisialisasi ke sebuah nilai.</p>
+  
+  <p> Aturan lingkup untuk konstanta sama dengan variabel lingkup-blok <code>let</code>  . Jika kata kunci  <code>const </code> dihilangkan, pengenal dianggap mewakili variabel.</p>
+  
+  <p> Anda tidak dapat mendeklarasikan konstanta dengan nama yang sama dengan fungsi atau variabel dalam lingkup yang sama. Sebagai contoh:</p>
+  
+  <pre><code>// INI AKAN MENYEBABKAN ERROR
+  function f() {};
+  const f = 5;
+  
+  // INI AKAN MENYEBABKAN ERROR JUGA
+  function f() {
+    const g = 5;
+    var g;
+  
+    //pernyataan
+  }</code></pre>
+  
+  <p> Namun, properti objek yang ditugaskan pada konstanta tidak terlindungi, jadi pernyataan berikut dijalankan tanpa masalah.</p>
+  
+  <pre><code>const MY_OBJECT = {'key': 'value'};
+  MY_OBJECT.key = 'otherValue';</code></pre>
+    </section>
+  <section class="main-section" id="Struktur_dan_Tipe_Data">
+  <header>Struktur dan Tipe Data</header>
+  <h3> Tipe data</h3>
+  
+  <p> Standar ECMAScript terbaru mendefinisikan tujuh tipe data:</p>
+  
+  <ul>
+   <li> Enam tipe data yang <a href="/id/docs/Glossary/Primitive">primitif</a>  :
+  
+    <ul>
+     <li><a href="/en-US/docs/Glossary/Boolean">Boolean</a>.  <code>true </code> Dan <code>false</code> .</li>
+     <li><a href="/id/docs/Glossary/Null">null</a>.  Kata kunci khusus yang menunjukkan nilai null. Karena JavaScript adalah huruf-sensitif/case-sensitive, <code>null</code>  ini tidak sama dengan <code>Null</code> , <code>NULL</code> , atau varian lainnya.</li>
+     <li><a href="/en-US/docs/Glossary/undefined">undefined</a> . Properti tingkat atas yang nilainya tidak terdefinisi.</li>
+     <li><a href="/en-US/docs/Glossary/Number">Number</a> . <code>42 </code> Atau <code>3.14159</code> .</li>
+     <li><a href="/en-US/docs/Glossary/String">String</a> . "howdy"</li>
+     <li><a href="/en-US/docs/Glossary/Symbol">Symbol</a>  (baru dalam ECMAScript 2015). Tipe data yang halnya unik dan tidak dapat diubah.</li>
+    </ul>
+   </li>
+   <li> Dan <a href="/en-US/docs/Glossary/Object">Object</a></li>
+  </ul>
+  <p> Meskipun tipe data ini jumlahnya relatif kecil, namun memungkinkan Anda untuk melakukan fungsi-fungsi yang berguna dengan aplikasi Anda.  <a href="/id/docs/Web/JavaScript/Reference/Global_Objects/Object"><code>Objects</code></a> dan <a href="/id/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>functions</code></a>  merupakan unsur fundamental lainnya dalam bahasa ini. Anda bisa memikirkan objek sebagai wadah bernama untuk nilai, dan fungsi sebagai prosedur yang dapat dilakukan aplikasi Anda.</p>
+  <h3 id="Konversi_tipe_data"> Konversi tipe data</h3>
+  <p> JavaScript adalah bahasa yang diketik secara dinamis. Itu berarti Anda tidak perlu menentukan tipe data variabel saat Anda menyatakannya, dan tipe data akan dikonversi secara otomatis sesuai kebutuhan selama eksekusi skrip. Jadi, misalnya, Anda bisa mendefinisikan variabel sebagai berikut:</p>
+  <pre><code>var jawaban = 42;</code></pre>
+  <p> Dan nanti, Anda bisa menetapkan variabel yang sama dengan nilai string, misalnya:</p>
+  <pre><code>jawaban = 'Thanks for all the fish...';</code></pre>
+  <p> Karena JavaScript diketik secara dinamis, penugasan ini tidak menyebabkan pesan kesalahan.</p>
+  <p> Dalam ekspresi yang melibatkan nilai numerik dan string dengan operator +, JavaScript mengubah nilai numerik menjadi string. Misalnya, perhatikan pernyataan berikut:</p>
+  <pre><code>x = 'Jawabannya adalah ' + 42 // "Jawabannya adalah 42"
+  y = 42 + ' Adalah jawabannya' // "42 Adalah jawabannya"</code></pre>
+  <p> Dalam pernyataan yang melibatkan operator lain, JavaScript tidak mengubah nilai numerik menjadi string. Sebagai contoh:</p>
+  <pre><code>'37' - 7 // 30
+  '37' + 7 // "377"</code></pre>
+  <h3 id="Mengubah_string_menjadi_angka"> Mengubah string menjadi angka</h3>
+  <p> Dalam kasus yang sebuah nilai mewakili bilangan ada dalam memori sebagai string, ada metode untuk konversi.</p>
+  
+  <ul>
+   <li id="parseInt()_and_parseFloat()"><a class="new" href="/id/docs/Web/JavaScript/Reference/parseInt" rel="nofollow"><code>parseInt()</code></a></li>
+   <li><a class="new" href="/id/docs/Web/JavaScript/Reference/parseFloat" rel="nofollow"><code>parseFloat()</code></a></li>
+  </ul>
+  
+  <p><code>parseInt </code> Hanya akan memberikan bilangan bulat, jadi penggunaannya berkurang untuk desimal. Selain itu, praktik terbaik untuk <code>parseInt </code> selalu menyertakan parameter radix. Parameter radix digunakan untuk menentukan sistem numerik yang akan digunakan.</p>
+  
+  <p> Metode alternatif untuk mengambil nomor dari string adalah dengan operator <code>+</code>   (unary plus):</p>
+  
+  <pre><code>'1.1' + '1.1' = '1.11.1'
+  (+'1.1') + (+'1.1') = 2.2   
+  // Catatan: kurung siku buka tutup ditambahkan untuk kejelasan, tidak diminta.</code></pre>
+  </section>
+  <section class="main-section" id="Literal">
+  <header>Literal</header>
+  
+  <p> Anda menggunakan literal untuk mewakili nilai dalam JavaScript. Ini adalah nilai tetap, bukan variabel, yang Anda berikan <em> secara literal </em> dalam skrip Anda. Bagian ini menjelaskan jenis literal berikut:</p>
+  
+  <ul>
+   <li><a href="#Literal_array">Literal array</a></li>
+   <li><a href="#Literal_boolean">Literal boolean</a></li>
+   <li><a href="#Literal_floating-point">Literal floating-point</a></li>
+   <li><a href="#Literal_integer">Literal integer</a></li>
+   <li><a href="#Literal_object">Literal_object</a></li>
+   <li><a href="#Literal_RegExp">Literal RegExp</a></li>
+   <li><a href="#Literal_string">Literal string</a></li>
+  </ul>
+  
+  <h3 id="Literal_array"> Literal array</h3>
+  
+  <p> Sebuah literal array adalah daftar dari nol atau lebih ekspresi,  yang masing-masing mewakili elemen array, dilampirkan dalam tanda kurung siku (<code>[]</code> ). Bila Anda membuat array menggunakan literal array, ini diinisialisasi dengan nilai yang ditentukan sebagai elemennya, dan panjangnya diatur ke jumlah argumen yang ditentukan.</p>
+  
+  <p> Contoh berikut membuat array <code>coffees </code> dengan tiga elemen dan panjang tiga:</p>
+  
+  <pre><code>var coffees = ['French Roast', 'Colombian', 'Kona'];</code></pre>
+  
+  <p><strong> Catatan:</strong>  Sebuah literal array  adalah tipe dari object initializer. Lihat <a class="new" href="https://developer.mozilla.org/id/docs/Web/JavaScript/Guide/Working_with_Objects#Using_object_initializers" rel="nofollow"> Menggunakan Penginisialisasi Objek</a> .</p>
+  
+  <p> Jika sebuah array dibuat menggunakan literal dalam skrip tingkat-atas, JavaScript menginterpretasikan array setiap kali mengevaluasi ekspresi yang berisi literal array. Selain itu, literal yang digunakan dalam suatu fungsi dibuat setiap kali fungsi dipanggil.</p>
+  
+  <p> Array literal juga objek Array . Lihat <code><a href="https://developer.mozilla.org/id/docs/Web/JavaScript/Reference/Global_Objects/Array" title="Objek JavaScript Array adalah objek global yang digunakan dalam konstruksi array;  Yang tingkat tinggi, daftar-seperti objek.">Array</a> </code> dan <a class="new" href="https://developer.mozilla.org/id/docs/Web/JavaScript/Guide/Indexed_collections" rel="nofollow"> Koleksi diIndek</a>  untuk rincian tentang objek <code>Array</code> .</p>
+  
+  <h4 id="Ekstra_koma_dalam_literal_array"> Ekstra koma dalam literal array</h4>
+  
+  <p> Anda tidak perlu menentukan semua elemen dalam literal array. Jika Anda memasukkan dua koma berturut-turut, array dibuat <code>undefined </code> untuk elemen yang tidak ditentukan. Contoh berikut membuat array <code>fish</code> :</p>
+  
+  <pre><code>var fish = ['Lion', , 'Angel'];</code></pre>
+  
+  <p> Array ini memiliki dua elemen dengan nilai dan satu elemen kosong (<code>fish[0]</code>  adalah "Lion", <code>fish[1]</code>  adalah <code>undefined</code> , dan <code>fish[2]</code>  merupakan "Angel").</p>
+  
+  <p> Jika Anda menyertakan koma di akhir daftar elemen, koma diabaikan. Pada contoh berikut, panjang array adalah tiga. Tidak ada <code>myList[3]</code> . Semua koma lainnya dalam daftar menunjukkan elemen baru.</p>
+  
+  <p><strong> Catatan:</strong>  Koma diakhir dapat membuat kesalahan pada versi browser lama dan merupakan praktik terbaik untuk menghapusnya.</p>
+  
+  <pre><code>var myList = ['home', , 'school', ];</code></pre>
+  
+  <p> Dalam contoh berikut, panjang array adalah empat, dan <code>myList[0]</code> dan <code>myList[2]</code>  hilang.</p>
+  
+  <pre><code>var myList = [ ,'home', , 'school'];</code></pre>
+  
+  <p> Dalam contoh berikut, panjang array adalah empat, dan <code>myList[1]</code> dan <code>myList[3] </code> hilang. Hanya koma terakhir yang diabaikan.</p>
+  
+  <pre><code>var myList = ['home', , 'school', , ];</code></pre>
+  
+  <p> Memahami perilaku ekstra  koma penting untuk memahami JavaScript sebagai bahasa, namun saat menulis kode Anda sendiri: secara eksplisit menyatakan elemen yang hilang sebagai <code>undefined </code> akan meningkatkan kejelasan dan perawatan kode anda.</p>
+  
+  <h3 id="Literal_boolean">L iteral boolean</h3>
+  
+  <p> Tipe Boolean memiliki dua nilai literal: <code>true </code> dan <code>false</code> .</p>
+  
+  <p> Jangan membingungkan nilai Boolean primitif <code>true </code> dan <code>false </code> dengan nilai true dan false objek Boolean. Objek Boolean adalah pembungkus di sekitar tipe data Boolean primitif. Lihat <a class="new" href="/id/docs/Web/JavaScript/Reference/Boolean" rel="nofollow"><code>Boolean</code></a> untuk  informasi lebih lanjut.</p>
+  
+  <h3 id="Integer"> Integer</h3>
+  
+  <p> Integer dapat dinyatakan dalam desimal (basis 10), heksadesimal (basis 16), oktal (basis 8) dan biner (basis 2).</p>
+  
+  <ul>
+   <li> Literal integer desimal terdiri dari urutan digit tanpa 0 (nol) didepan.</li>
+   <li> Memulakan 0 (nol) pada literal integer, atau Memulakan 0o (atau 0O) mengindikasikan itu adalah oktal. Integer Oktal hanya bisa memasukkan angka 0-7.</li>
+   <li> Memulakan 0x (atau 0X) menunjukkan heksadesimal. Integer heksadesimal dapat mencakup angka (0-9) dan huruf a-f dan A-F.</li>
+   <li>
+    <p> Memulakan 0b (atau 0B) menunjukkan biner. Integer biner dapat mencakup angka hanya 0 dan 1.</p>
+   </li>
+  </ul>
+  
+  <p> Beberapa contoh literal bilangan bulat adalah:</p>
+  
+  <pre><code>0, 117 and -345 (desimal, basis 10)
+  015, 0001 and -0o77 (oktal, basis 8) 
+  0x1123, 0x00111 and -0xF1A7 (heksadesimal, "hex" or basis 16)
+  0b11, 0b0011 and -0b11 (biner, basis 2)</code></pre>
+  
+  <p> Untuk informasi lebih lanjut, lihat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Numeric_literals"> literatur numerik dalam referensi tata bahasa leksikal</a>  .</p>
+  
+  <h3 id="Literal_floating-point"> Literal floating-point</h3>
+  
+  <p> Sebuah literal  floating-point dapat memiliki bagian berikut:</p>
+  
+  <ul>
+   <li> Sebuah integer desimal yang dapat ditandatangani (didahului dengan "+" atau "-"),</li>
+   <li> Titik desimal ("."),</li>
+   <li> Fraksi (bilangan desimal lain),</li>
+   <li> Eksponen</li>
+  </ul>
+  
+  <p> Bagian eksponennya adalah "e" atau "E" diikuti oleh bilangan bulat, yang dapat ditandatangani (didahului dengan "+" atau "-"). Literal floating-point harus memiliki setidaknya satu digit dan titik desimal atau "e" (atau "E").</p>
+  
+  <p> Lebih ringkas lagi, sintaksnya adalah:</p>
+  
+  <pre><code>[(+|-)][angka][.angka][(E|e)[(+|-)]angka]</code></pre>
+  
+  <p> Sebagai contoh:</p>
+  
+  <pre><code>3.1415926
+  -.123456789
+  -3.1E+12
+  .1e-23</code></pre>
+  
+  <h3 id="Literal_objek"> Literal objek</h3>
+  
+  <p> Literal objek adalah daftar dari nol atau lebih pasangan nama properti dan nilai objek yang terkait, yang dilampirkan dalam kurung kurawal (<code>{}</code> ). Anda seharusnya tidak menggunakan literal objek di awal sebuah pernyataan. Ini akan menyebabkan kesalahan atau tidak berperilaku seperti yang Anda harapkan, karena { akan ditafsirkan sebagai awal dari sebuah blok.</p>
+  
+  <p> Berikut ini adalah contoh dari literal objek. Elemen pertama dari objek <code>car </code> mendefinisikan sebuah properti <code>myCar</code> , dan menetapkan sebuah string baru, " <code>Saturn</code> ";  Elemen kedua, properti <code>getCar</code> ,  segera diberi hasil pemanggilan function <code>(carTypes("Honda")); </code> elemen ketiga, properti <code>special</code>  menggunakan variabel yang ada ( <code>sales</code> ).</p>
+  
+  <pre><code>var sales = 'Toyota';
+  
+  function carTypes(name) {
+    if (name === 'Honda') {
+      return name;
+    } else {
+      return "Maaf, kami tidak menjual " + name + ".";
+    }
+  }
+  
+  var car = { myCar: 'Saturn', getCar: carTypes('Honda'), special: sales };
+  
+  console.log(car.myCar);   // Saturn
+  console.log(car.getCar);  // Honda
+  console.log(car.special); // Toyota</code></pre>
+  
+  <p> Selain itu, Anda dapat menggunakan literal numerik atau string untuk nama properti atau menyarangkan objek di dalam objek yang lain. Contoh berikut menggunakan opsi ini.</p>
+  
+  <pre><code>var car = { manyCars: {a: 'Saab', 'b': 'Jeep'}, 7: 'Mazda' };
+  
+  console.log(car.manyCars.b); // Jeep
+  console.log(car[7]); // Mazda</code></pre>
+  
+  <p> Nama properti objek bisa berupa string apapun, termasuk string kosong. Jika nama properti akan menjadi <a href="/id/docs/Glossary/Identifier">pengidentifikasi</a>  JavaScript yang tidak valid atau angka, maka harus dilampirkan dalam tanda petik. Nama properti yang pengidentifikasi tidak valid juga tidak dapat diakses sebagai properti dot (<code>.</code> ), namun dapat diakses dan ditetapkan dengan notasi seperti array ("<code>[]</code> ").</p>
+  
+  <pre><code>var namaPropertiTidakBiasa = {
+    '': 'An empty string',
+    '!': 'Bang!'
+  }
+  console.log(namaPropertiTidakBiasa.'');   // SyntaxError: Unexpected string
+  console.log(namaPropertiTidakBiasa['']);  // An empty string
+  console.log(namaPropertiTidakBiasa.!);    // SyntaxError: Unexpected token !
+  console.log(namaPropertiTidakBiasa['!']); // Bang!</code></pre>
+  
+  <h4 id="Peningkatan_Literal_Objek">Peningkatan Literal Objek</h4>
+  
+  <p> Di ES2015, literal objek diperluas untuk mendukung pengaturan prototipe pada konstruksi, singkatan untuk  <code>foo: penugasan</code>  <code>foo</code>  , definisikan metode, pembuatan panggilan super, dan komputasi nama properti dengan ekspresi. Bersamaan dengan itu, ini juga membawa literatur dan deklarasi kelas lebih dekat bersama, dan membiarkan desain berbasis objek mendapatkan keuntungan dari beberapa kemudahan yang sama.</p>
+  
+  <pre><code>var obj = {
+      // __proto__
+      __proto__: theProtoObj,
+      // Shorthand for ‘handler: penangan’
+      handler,
+      // Metode
+      toString() {
+       // Pangilan super
+       return 'd ' + super.toString();
+      },
+      // Dikalkulasi (dinamis) nama properti
+      [ 'prop_' + (() =&gt; 42)() ]: 42
+  };</code></pre>
+  
+  <p> Tolong dicatat:</p>
+  
+  <pre><code>var foo = {a: 'alpha', 2: 'two'};
+  console.log(foo.a);    // alpha
+  console.log(foo[2]);   // two
+  //console.log(foo.2);  // Error: missing ) after argument list
+  //console.log(foo[a]); // Error: a is not defined
+  console.log(foo['a']); // alpha
+  console.log(foo['2']); // two</code></pre>
+  
+  <h3 id="Literal_RegExp"> Literal RegExp</h3>
+  
+  <p> Sebuah literal regex adalah pola yang dilampirkan diantara garis miring. Berikut ini adalah contoh literal regex.</p>
+  
+  <pre><code>var re = /ab+c/;</code></pre>
+  
+  <h3 id="Literal_string"> Literal string</h3>
+  
+  <p> Literal string adalah nol atau lebih karakter yang dilampirkan dengan tanda kutip ganda (<code>"</code> ) atau tunggal (<code>'</code> ). String harus dibatasi dengan tanda kutip dari jenis yang sama; Yaitu kedua tanda kutip tunggal atau kedua tanda petik ganda. Berikut ini adalah contoh literal string:</p>
+  
+  <pre><code>'foo'
+  "bar"
+  '1234'
+  'baris satu \n baris lainnya'
+  "Kucing jhon"</code></pre>
+  
+  <p> Anda dapat memanggil salah satu metode objek String pada nilai literal string-JavaScript secara otomatis mengubah literal string menjadi objek String sementara, memanggil metode tersebut, lalu membuang objek String sementara. Anda juga bisa menggunakan  properti <code>String.length</code>  dengan literal string:</p>
+  
+  <pre><code>console.log("Kucing jhon".length) 
+  // </code><span id="result_box" lang="id"><span>Akan mencetak jumlah simbol dalam string termasuk spasi.</span></span><code> 
+  // Dalam hal ini, 11.</code></pre>
+  
+  <p> Di ES2015, template literal juga tersedia. Template string memberikan sintaksis gula untuk pembuatan string. Ini mirip dengan fitur interpolasi string di Perl, Python dan lainnya. Secara opsional, tag dapat ditambahkan untuk memungkinkan konstruksi string disesuaikan, menghindari serangan injeksi atau membangun struktur data tingkat tinggi dari konten string.</p>
+  
+  <pre><code>// Literal dasar kreasi string
+  `Dalam JavaScript '\n' adalah sebuah line-feed.`
+  
+  // String beberapa baris
+  `</code><span id="result_box" lang="id"><span>Dalam template </span></span><span lang="id"><span>string JavaScript dapat berjalan di
+   beberapa baris, namun string yang dikutip ganda dan tunggal
+   tidak dapat dilakukan.</span></span><code>`
+  
+  // Interpoasi string
+  var name = 'Bob', time = 'today';
+  `Hello ${name}, how are you ${time}?`
+  
+  // </code><span id="result_box" lang="id"><span>Membangun prefix permintaan HTTP digunakan untuk menafsirkan penggantian dan konstruksi</span></span><code>
+  POST`http://foo.org/bar?a=${a}&amp;b=${b}
+       Content-Type: application/json
+       X-Credentials: ${credentials}
+       { "foo": ${foo},
+         "bar": ${bar}}`(myOnReadyStateChangeHandler);</code></pre>
+  
+  <p> Anda harus menggunakan literal string kecuali Anda secara khusus perlu menggunakan objek String. Lihat <a href="/id/docs/Web/JavaScript/Reference/Global_Objects/String"><code>String</code></a> <code> </code> untuk rincian tentang objek <code>String.</code></p>
+  
+  <h4 id="Menggunakan_karakter_khusus_dalam_string"> Menggunakan karakter khusus dalam string</h4>
+  
+  <p> Selain karakter biasa, Anda juga bisa menyertakan karakter khusus dalam string, seperti yang ditunjukkan pada contoh berikut.</p>
+  
+  <pre><code>'one line \n another line'</code></pre>
+  
+  <p> Tabel berikut mencantumkan karakter khusus yang dapat Anda gunakan dalam string JavaScript.</p>
+  
+  <table>
+   <caption> Tabel: karakter khusus JavaScript</caption>
+   <thead>
+    <tr>
+     <th scope="col"> Karakter</th>
+     <th scope="col"> Berarti</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td><code>\0</code></td>
+     <td> Null Byte</td>
+    </tr>
+    <tr>
+     <td><code>\b</code></td>
+     <td> backspase</td>
+    </tr>
+    <tr>
+     <td><code>\f</code></td>
+     <td>form feed</td>
+    </tr>
+    <tr>
+     <td><code>\n</code></td>
+     <td> Baris baru</td>
+    </tr>
+    <tr>
+     <td><code>\r</code></td>
+     <td> Cariage return</td>
+    </tr>
+    <tr>
+     <td><code>\t</code></td>
+     <td> Tab</td>
+    </tr>
+    <tr>
+     <td><code>\v</code></td>
+     <td> Tab vertikal</td>
+    </tr>
+    <tr>
+     <td><code>\'</code></td>
+     <td> Apostrof atau kutipan tunggal</td>
+    </tr>
+    <tr>
+     <td><code>\"</code></td>
+     <td> Kutipan ganda</td>
+    </tr>
+    <tr>
+     <td><code>\\</code></td>
+     <td> Karakter backslash</td>
+    </tr>
+    <tr>
+     <td><code>\<em>XXX</em></code></td>
+     <td> Karakter dengan pengkodean Latin-1 ditentukan oleh hingga tiga digit oktal <em> XXX</em>  antara 0 dan 377. Misalnya, \251 adalah urutan oktal untuk simbol hak cipta.</td>
+    </tr>
+    <tr>
+     <td><code>\x<em>XX</em></code></td>
+     <td> Karakter dengan pengkodean Latin-1 yang ditentukan oleh dua digit heksadesimal <em> XX</em>  antara 00 dan FF. Misalnya, \xA9 adalah urutan heksadesimal untuk simbol hak cipta.</td>
+    </tr>
+    <tr>
+     <td><code>\u<em>XXXX</em></code></td>
+     <td> Karakter Unicode ditentukan oleh empat digit heksadesimal <em> XXXX</em>  . Misalnya, \u00A9 adalah urutan Unicode untuk simbol hak cipta. Lihat <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#String_literals"> rangkaian pelolosan Unicode</a> .</td>
+    </tr>
+    <tr>
+     <td><code>\u<em>{XXXXX}</em></code></td>
+     <td> Kode Unicode lolos. Misalnya, \u {2F804} sama dengan Unicode sederhana yang lolos \uD87E \uDC04.</td>
+    </tr>
+   </tbody>
+  </table>
+  
+  <h4 id="Karakter_pelolosan"> Karakter pelolosan</h4>
+  
+  <p> Untuk karakter yang tidak tercantum dalam tabel, tanda garis miring terbalik sebelumnya diabaikan, namun penggunaan ini tidak berlaku lagi dan harus dihindari.</p>
+  
+  <p> Anda dapat memasukkan tanda petik di dalam string sebelum mendahului dengan garis miring terbalik. Ini dikenal sebagai <em> pelolosan</em>  dari tanda petik. Sebagai contoh:</p>
+  
+  <pre><code>var quote = "He read \"The Cremation of Sam McGee\" by R.W. Service.";
+  console.log(quote);</code></pre>
+  
+  <p> Hasil dari ini adalah:</p>
+  
+  <pre><code>He read "The Cremation of Sam McGee" by R.W. Service.</code></pre>
+  
+  <p> Untuk menyertakan garis miring terbalik di dalam string, Anda harus melepaskan diri dari karakter garis miring terbalik. Misalnya, untuk menetapkan path file <code>c:\temp</code>  ke string, gunakan yang berikut ini:</p>
+  
+  <pre><code>var home = 'c:\\temp';</code></pre>
+  
+  <p> Anda juga bisa meloloskan dari baris istirahat sebelumnya mendahului mereka dengan garis miring terbalik. Garis miring terbalik dan baris istirahat keduanya terlepas dari nilai string.</p>
+  
+  <pre><code>var str = 'this string \
+  is broken \
+  across multiple \
+  lines.'
+  console.log(str);   // this string is broken across multiplelines.</code></pre>
+  
+  <p> Meskipun JavaScript tidak memiliki sintaks "heredoc", Anda bisa mendekat dengan menambahkan pelolosan baris istirahat dan baris istirahat pada akhir setiap baris:</p>
+  
+  <pre><code>var poem = 
+  'Roses are red,\n\
+  Violets are blue.\n\
+  Sugar is sweet,\n\
+  and so is foo.'</code></pre>
+  
+  <p> ECMAScript 2015 memperkenalkan tipe literal baru, yaitu  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/template_strings" rel="noreferrer"><strong> template literal</strong></a>  . Hal ini memungkinkan banyak fitur baru termasuk string beberapa baris!</p>
+  
+  <p> </p>
+  
+  <pre dir="rtl"><code>var poem = 
+  `Roses are red, 
+  Violets are blue. 
+  Sugar is sweet, 
+  and so is foo.`</code></pre>
+  
+  <p> </p>
+  
+    </section>
+    <section class="main-section" id="Referensi">
+      <header>Referensi</header>
+      <ul>
+        <li>All of the documentation on this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types" target="_blank">MDN</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>Coded by <a href="https://www.freecodecamp.org/elrolfe" target="_blank">Eric Rolfe</a>
+  </footer>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
